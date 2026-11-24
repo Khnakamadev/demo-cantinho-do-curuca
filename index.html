@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cantinho do Curuca · Moqueca capixaba em Meaípe</title>
+<meta name="description" content="Cantinho do Curuca em Meaípe, Guarapari. Moqueca capixaba em panela de barro, frutos do mar e mesas na areia.">
+<meta property="og:title" content="Cantinho do Curuca · Meaípe, Guarapari">
+<meta property="og:description" content="Moqueca capixaba e frutos do mar de frente para a Praia de Meaípe.">
+<meta property="og:image" content="https://khnakamadev.github.io/demo-cantinho-do-curuca/img/hero-moqueca-web.jpg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://khnakamadev.github.io/demo-cantinho-do-curuca/">
+<meta property="og:image:alt" content="Ilustração de moqueca capixaba em panela de barro">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,500&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+:root {
+  --mar:#0e2a38; --barro:#ac4828; --barro-escuro:#943c20; --areia:#f4ecdf;
+  --ouro:#c9a15a; --marfim:#fffaf3; --tinta:#1d1a17; --suave:#65584e; --linha:#d8c9b8;
+  --serif:"Playfair Display",Georgia,serif; --raio:4px; --nav:72px;
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--areia); color:var(--tinta); font:1rem/1.65 Inter,system-ui,sans-serif; }
+html { scroll-behavior:smooth; scroll-padding-top:calc(var(--nav) + 16px); }
+h1,h2,h3,p,figure,blockquote,dd { margin:0; }
+h1,h2,h3 { font-family:var(--serif); line-height:1.1; letter-spacing:-.025em; text-wrap:balance; }
+h2 { font-size:clamp(2rem,5vw,3.625rem); color:var(--mar); }
+h3 { font-size:clamp(1.5rem,2.5vw,2rem); color:var(--mar); }
+img { display:block; width:100%; height:auto; object-fit:cover; }
+a { color:inherit; text-underline-offset:.2em; }
+:focus-visible { outline:3px solid var(--marfim); outline-offset:2px; box-shadow:0 0 0 7px var(--mar); }
+::selection { background:var(--ouro); color:var(--mar); }
+.wrap { width:min(1200px,calc(100% - clamp(40px,8vw,96px))); margin-inline:auto; }
+section { padding-block:clamp(64px,9vw,112px); }
+.btn { display:inline-flex; min-height:48px; align-items:center; justify-content:center; padding:.62rem 1.1rem; border:1px solid transparent; border-radius:var(--raio); font-weight:600; text-decoration:none; }
+.btn-barro { background:var(--barro); color:#fff; }
+.btn-barro:hover { background:var(--barro-escuro); }
+.btn-linha { color:var(--marfim); border-color:var(--ouro); }
+.btn-linha:hover { background:var(--ouro); color:var(--mar); }
+.pular { position:fixed; z-index:10; top:12px; left:12px; padding:12px; background:var(--marfim); color:var(--mar); }
+.pular:not(:focus) { clip-path:inset(100%); }
+.cabecalho { position:sticky; top:0; z-index:5; background:var(--mar); color:var(--marfim); border-bottom:1px solid #ffffff26; }
+.barra { min-height:var(--nav); display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.logo { font:700 clamp(1.03rem,2vw,1.4rem)/1.2 var(--serif); text-decoration:none; }
+.logo span { color:var(--ouro); }
+.menu ul { display:flex; align-items:center; gap:clamp(16px,2.4vw,32px); list-style:none; padding:0; margin:0; }
+.menu a { display:flex; align-items:center; min-height:44px; text-decoration:none; font-size:.9rem; }
+.menu a:hover { text-decoration:underline; }
+.menu-toggle { display:none; }
+.reserva { white-space:nowrap; font-size:.88rem; }
+.hero { background:var(--mar); color:var(--marfim); display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.12fr); }
+.hero-txt { align-self:center; padding:clamp(48px,7vw,108px) clamp(20px,4vw,64px); padding-left:max(clamp(20px,4vw,48px),calc((100vw - 1200px) / 2)); }
+.hero h1 { font-size:clamp(2.5rem,6.1vw,5.5rem); }
+.hero h1 em { color:var(--ouro); font-weight:500; }
+.hero p { max-width:36ch; margin:24px 0; color:#f0e5d6; font-size:clamp(1rem,1.5vw,1.125rem); }
+.hero img { height:100%; min-height:440px; max-height:720px; object-position:center; }
+.acoes { display:flex; flex-wrap:wrap; gap:12px; }
+.titulo { max-width:650px; margin-bottom:clamp(28px,5vw,52px); }
+.titulo p { color:var(--suave); margin-top:12px; }
+.pratos { background:var(--marfim); }
+.cards { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:32px 24px; }
+.card { min-width:0; }
+.card img,.editorial img { border-radius:var(--raio); }
+.card img { aspect-ratio:4/3; }
+.card h3 { margin-top:14px; }
+.card p { color:var(--suave); margin-top:7px; }
+.card.destaque { grid-column:span 2; grid-row:span 2; }
+.card.destaque img { aspect-ratio:4/4.35; }
+.card.destaque h3 { font-size:clamp(1.75rem,3vw,2.25rem); }
+.editorial .grid,.visite .grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:center; gap:clamp(24px,6vw,80px); }
+.editorial img { aspect-ratio:4/3; }
+.editorial p { max-width:60ch; margin-top:16px; }
+.editorial figcaption { color:var(--suave); font-size:.82rem; margin-top:8px; }
+.experiencia { background:var(--marfim); }
+.experiencia figure { order:1; }
+.avaliacoes { background:var(--mar); color:var(--marfim); }
+.avaliacoes h2 { color:inherit; }
+.notas,.depos { display:grid; gap:24px; }
+.notas { grid-template-columns:repeat(2,minmax(0,1fr)); max-width:600px; margin-bottom:36px; }
+.nota b { display:block; color:var(--ouro); font:700 clamp(2.4rem,5vw,3.6rem)/1 var(--serif); margin-bottom:8px; }
+.nota span,.depo cite { color:#ebdece; }
+.depos { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.depo { padding-top:20px; border-top:1px solid #ffffff38; }
+.depo p { font:italic 500 1.3rem/1.45 var(--serif); margin-bottom:8px; }
+.depo cite { font-size:.85rem; font-style:normal; }
+.visite .grid { align-items:stretch; }
+.info dl { display:grid; gap:16px; margin:24px 0; }
+.info dt { font-weight:600; color:var(--mar); }
+.mapa { border:0; border-radius:var(--raio); width:100%; height:100%; min-height:340px; background:#e6dccd; }
+footer { background:var(--mar); color:var(--marfim); padding:28px 0; font-size:.875rem; }
+footer .wrap { display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+
+
+
+
+@media(max-width:850px) {
+  :root { --nav:64px; }
+  .barra { flex-wrap:wrap; gap:0 12px; padding-block:8px; }
+  .logo { margin-inline-end:auto; }
+  .menu { order:3; width:100%; }
+  .menu ul { display:grid; grid-template-columns:1fr 1fr; gap:0 12px; }
+  .js .menu { position:absolute; top:100%; inset-inline:0; background:var(--mar); padding:8px max(20px,4vw) 14px; border-bottom:1px solid #ffffff26; }
+  .js .menu[data-fechado] { display:none; }
+  .js .menu-toggle { display:inline-flex; align-items:center; min-height:44px; border:1px solid #ffffff70; border-radius:var(--raio); background:transparent; color:inherit; font:inherit; font-size:.875rem; padding:0 10px; cursor:pointer; }
+  .cards { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .card.destaque { grid-row:auto; }
+  .card.destaque img { aspect-ratio:16/9; }
+}
+@media(max-width:600px) {
+  .hero,.editorial .grid,.visite .grid,.depos { grid-template-columns:1fr; }
+  .hero-txt { padding-block:36px 28px; }
+  .hero img { height:auto; min-height:0; aspect-ratio:4/3; }
+  .cards { gap:24px 14px; }
+  .card h3 { font-size:1.36rem; }
+  .card.destaque h3 { font-size:1.75rem; }
+  .card p { font-size:.9rem; }
+  .experiencia figure { order:0; }
+  .mapa { min-height:290px; }
+  .reserva { padding-inline:9px; }
+}
+@media(max-width:355px) { .cards { grid-template-columns:1fr; } .card.destaque { grid-column:auto; } }
+@media(prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto; }
+
+}
+</style>
+</head>
+<body>
+
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<header class="cabecalho">
+  <div class="wrap barra">
+    <a class="logo" href="#topo">Cantinho do <span>Curuca</span></a>
+    <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav class="menu" id="menu" aria-label="Navegação principal" data-fechado>
+      <ul>
+        <li><a href="#pratos">Cardápio</a></li>
+        <li><a href="#historia">História</a></li>
+        <li><a href="#avaliacoes">Avaliações</a></li>
+        <li><a href="#visite">Como chegar</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-barro reserva" href="tel:+552732722025" aria-label="Ligar para o Cantinho do Curuca">Ligar</a>
+  </div>
+</header>
+<main id="conteudo" tabindex="-1">
+  <div class="hero" id="topo">
+    <div class="hero-txt">
+      <h1>Moqueca capixaba <em>à beira-mar</em></h1>
+      <p>Panela de barro, frutos do mar e mesas na areia, de frente para a Praia de Meaípe, em Guarapari.</p>
+      <div class="acoes">
+        <a class="btn btn-barro" href="tel:+552732722025">Ligar para o restaurante</a>
+        <a class="btn btn-linha" href="#pratos">Ver cardápio</a>
+      </div>
+    </div>
+    <img src="img/hero-moqueca-web.jpg" alt="Ilustração de moqueca capixaba em panela de barro" width="1664" height="936" fetchpriority="high">
+  </div>
+
+  <section class="pratos" id="pratos" aria-labelledby="titulo-pratos">
+    <div class="wrap">
+      <div class="titulo">
+        <h2 id="titulo-pratos">Especialidades da casa</h2>
+        <p>Moquecas em panela de barro, frutos do mar e a torta de coco do Curuca. Imagens ilustrativas.</p>
+      </div>
+      <div class="cards">
+        <article class="card destaque">
+          <img src="img/prato-badejo-web.jpg" alt="Ilustração de moqueca de badejo" width="1448" height="1086" loading="lazy" decoding="async">
+          <h3>Moqueca de badejo</h3>
+          <p>Badejo em panela de barro, com arroz, pirão de peixe e moquequinha de banana-da-terra.</p>
+        </article>
+        <article class="card">
+          <img src="img/prato-camarao-web.jpg" alt="Ilustração de moqueca de camarão" width="1448" height="1086" loading="lazy" decoding="async">
+          <h3>Moqueca de camarão</h3>
+          <p>Camarão rosa na panela de barro. A versão mista combina peixe e camarão.</p>
+        </article>
+        <article class="card">
+          <img src="img/prato-bobo-web.jpg" alt="Ilustração de bobó de camarão" width="1448" height="1086" loading="lazy" decoding="async">
+          <h3>Bobó de camarão</h3>
+          <p>Camarão rosa servido em creme aveludado.</p>
+        </article>
+        <article class="card">
+          <img src="img/prato-camarao-frito-web.jpg" alt="Ilustração de uma porção de camarão frito" width="1448" height="1086" loading="lazy" decoding="async">
+          <h3>Camarão frito</h3>
+          <p>Porção de camarões pequenos fritos, servida como entrada.</p>
+        </article>
+        <article class="card">
+          <img src="img/prato-torta-coco-web.jpg" alt="Ilustração de uma fatia de torta de coco" width="1448" height="1086" loading="lazy" decoding="async">
+          <h3>Torta do Curuca</h3>
+          <p>Creme de coco coberto com suspiro.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="editorial" id="historia" aria-labelledby="titulo-historia">
+    <div class="wrap grid">
+      <figure>
+        <img src="img/hero-ambiente-web.jpg" alt="Vista ilustrativa de uma refeição à beira-mar" width="1664" height="936" loading="lazy" decoding="async">
+        <figcaption>Imagem ilustrativa.</figcaption>
+      </figure>
+      <div>
+        <h2 id="titulo-historia">Tudo começou na areia de Meaípe</h2>
+        <p>Nos anos 1970, Jailton Nascimento, conhecido como Curuca, começou vendendo churrasquinhos numa barraca à beira-mar.</p>
+        <p>O restaurante tem mais de 35 anos de história. A família segue à frente da casa, onde a moqueca é servida em panela de barro.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="editorial experiencia" id="experiencia" aria-labelledby="titulo-experiencia">
+    <div class="wrap grid">
+      <figure>
+        <img src="img/ambiente-mesas-na-areia.jpg" alt="Mesas sobre a areia no Cantinho do Curuca" width="720" height="1280" loading="lazy" decoding="async">
+      </figure>
+      <div>
+        <h2 id="titulo-experiencia">Almoço com o pé na areia</h2>
+        <p>De frente para a Praia de Meaípe, a casa serve porções para compartilhar e tem mesas na areia.</p>
+        <p><a href="#visite">Veja o endereço e os horários</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="avaliacoes" id="avaliacoes" aria-labelledby="titulo-avaliacoes">
+    <div class="wrap">
+      <h2 class="titulo" id="titulo-avaliacoes">Avaliações de quem já visitou</h2>
+      <div class="notas">
+        <div class="nota"><b>4,6/5</b><span>Google · cerca de 4,9 mil avaliações</span></div>
+        <div class="nota"><b>4,4/5</b><span>Tripadvisor · 1.613 avaliações</span></div>
+      </div>
+      <div class="depos">
+        <blockquote class="depo"><p>“A melhor moqueca da região.”</p><cite>Josué V. · Tripadvisor</cite></blockquote>
+        <blockquote class="depo"><p>“Vista de restaurante para a praia — inesquecível.”</p><cite>Kasia an. · Google</cite></blockquote>
+        <blockquote class="depo"><p>“Comida muito saborosa e farta.”</p><cite>CidaCosta · Tripadvisor</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="visite" id="visite" aria-labelledby="titulo-visite">
+    <div class="wrap grid">
+      <div class="info">
+        <h2 id="titulo-visite">Como chegar</h2>
+        <dl>
+          <div><dt>Endereço</dt><dd>Av. Manoel Santana, 96 — Meaípe<br>Guarapari · Espírito Santo</dd></div>
+          <div><dt>Horário divulgado</dt><dd>Todos os dias, das 11h às 22h. Confirme por telefone antes da visita.</dd></div>
+          <div><dt>Telefone</dt><dd><a href="tel:+552732722025">(27) 3272-2025</a></dd></div>
+        </dl>
+        <a class="btn btn-barro" href="https://www.google.com/maps/search/?api=1&amp;query=Cantinho+do+Curuca+Av+Manoel+Santana+96+Meaipe+Guarapari" target="_blank" rel="noopener">Abrir no Google Maps</a>
+      </div>
+      <iframe class="mapa" loading="lazy" title="Mapa do Cantinho do Curuca" src="https://www.google.com/maps?q=Cantinho+do+Curuca+Av+Manoel+Santana+96+Meaipe+Guarapari&amp;output=embed"></iframe>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <span>Prévia de demonstração — não oficial</span>
+    <a href="https://www.instagram.com/cantinhodocuruca/" target="_blank" rel="noopener">Instagram @cantinhodocuruca</a>
+  </div>
+</footer>
+<script>
+const toggle = document.querySelector('.menu-toggle');
+const menu = document.getElementById('menu');
+
+function setMenu(open) {
+  toggle.setAttribute('aria-expanded', String(open));
+  menu.toggleAttribute('data-fechado', !open);
+}
+
+const mobile = matchMedia('(max-width: 850px)');
+mobile.addEventListener('change', () => setMenu(false));
+toggle.addEventListener('click', () => setMenu(menu.hasAttribute('data-fechado')));
+menu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    setMenu(false);
+    const section = document.querySelector(link.getAttribute('href'));
+    section.setAttribute('tabindex', '-1');
+    section.focus({ preventScroll: true });
+  });
+});
+document.addEventListener('keydown', event => {
+  if (mobile.matches && event.key === 'Escape' && !menu.hasAttribute('data-fechado')) {
+    setMenu(false);
+    toggle.focus();
+  }
+});
+
+document.documentElement.classList.add('js');
+</script>
+</body>
+</html>
